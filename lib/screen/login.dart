@@ -1,7 +1,9 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
+import 'package:flutter_app1/screen/home2.dart';
 import 'package:flutter_app1/screen/welcome.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -20,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   Profile profile = Profile(email: '', password: '');
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
+  final Duration duration = const Duration(milliseconds: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +54,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("email", style: TextStyle(fontSize: 20)),
+                            SizedBox(
+                              height: 15,
+                            ),
                             TextFormField(
+                              decoration: InputDecoration(
+                                  hintText: "Please enter your email",
+                                  border: OutlineInputBorder()),
                               validator: MultiValidator([
                                 RequiredValidator(
                                     errorText: "Please enter your email"),
@@ -67,7 +76,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 15,
                             ),
                             Text("password", style: TextStyle(fontSize: 20)),
+                            SizedBox(
+                              height: 15,
+                            ),
                             TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Please enter your email",
+                                    border: OutlineInputBorder()),
                                 validator: RequiredValidator(
                                     errorText: "Please enter your password"),
                                 obscureText: true,
@@ -77,76 +92,90 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(
                               height: 15,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: AnimatedButton(
-                                // height: 70,
-                                width: double.infinity,
-                                text: 'Sing up',
-                                isReverse: true,
-                                selectedTextColor:
-                                    Color.fromARGB(255, 5, 184, 255),
-                                transitionType: TransitionType.CENTER_ROUNDER,
-                                // textStyle: submitTextStyle,
-                                backgroundColor:
-                                    Color.fromARGB(255, 5, 184, 255),
-                                borderColor: Color.fromARGB(255, 255, 255, 255),
-                                borderRadius: 50,
-                                borderWidth: 2,
-                                onPress: () async {
-                                  if (formKey.currentState!.validate()) {
-                                    formKey.currentState?.save();
-                                    try {
-                                      await FirebaseAuth.instance
-                                          .signInWithEmailAndPassword(
-                                              email: profile.email,
-                                              password: profile.password)
-                                          .then((value) {
-                                        formKey.currentState?.reset();
-                                        Navigator.pushReplacement(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return WelcomeScreen();
-                                        }));
-                                      });
-                                    } on FirebaseAuthException catch (e) {
-                                      // print(e.code);
-                                      // print(e.message);
-                                      Fluttertoast.showToast(
-                                          msg: "${e.message}",
-                                          textColor:
-                                              Color.fromARGB(255, 255, 60, 0),
+                            FadeInUp(
+                                duration: duration,
+                                // delay: const Duration(milliseconds: 200),
+                                child: SizedBox(
+                                    width: double.infinity, //width of button
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              Color.fromARGB(255, 255, 176, 58),
+                                          elevation: 3, //elevation of button
+                                          shape: RoundedRectangleBorder(
+                                              //to set border radius to button
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                        ),
+                                        onPressed: () async {
+                                          if (formKey.currentState!
+                                              .validate()) {
+                                            formKey.currentState?.save();
+                                            try {
+                                              await FirebaseAuth.instance
+                                                  .signInWithEmailAndPassword(
+                                                      email: profile.email,
+                                                      password:
+                                                          profile.password)
+                                                  .then((value) {
+                                                formKey.currentState?.reset();
+                                                Navigator.pushReplacement(
+                                                    context, MaterialPageRoute(
+                                                        builder: (context) {
+                                                  return WelcomeScreen();
+                                                }));
+                                              });
+                                            } on FirebaseAuthException catch (e) {
+                                              Fluttertoast.showToast(
+                                                  msg: "${e.message}",
+                                                  textColor: Color.fromARGB(
+                                                      255, 255, 60, 0),
+                                                  backgroundColor:
+                                                      Color.fromARGB(
+                                                          255, 255, 255, 255),
+                                                  gravity: ToastGravity.CENTER);
+                                            }
+                                          }
+                                        },
+                                        child: Text(
+                                          "LOGIN",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        )))),
+                            FadeInUp(
+                                duration: duration,
+                                // delay: const Duration(milliseconds: 200),
+                                child: SizedBox(
+                                    width: double.infinity, //width of button
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
                                           backgroundColor: Color.fromARGB(
-                                              255, 255, 255, 255),
-                                          gravity: ToastGravity.CENTER);
-                                    }
-                                  }
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: AnimatedButton(
-                                width: double.infinity,
-                                text: 'Back',
-                                isReverse: true,
-                                selectedTextColor:
-                                    Color.fromARGB(255, 255, 82, 82),
-                                transitionType: TransitionType.LEFT_TO_RIGHT,
-                                // textStyle: submitTextStyle,
-                                backgroundColor:
-                                    Color.fromARGB(255, 255, 82, 82),
-                                borderColor: Colors.white,
-                                borderRadius: 50,
-                                borderWidth: 2,
-                                onPress: () {
-                                  Navigator.pushReplacement(context,
-                                      MaterialPageRoute(builder: (context) {
-                                    return HomeScreen();
-                                  }));
-                                },
-                              ),
-                            ),
+                                              255,
+                                              255,
+                                              65,
+                                              18), //background color of button, //border width and color
+                                          elevation: 3, //elevation of button
+                                          shape: RoundedRectangleBorder(
+                                              //to set border radius to button
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pushReplacement(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) {
+                                            return HomeScreen2();
+                                          }));
+                                        },
+                                        child: Text(
+                                          "BACK",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Color.fromARGB(
+                                                  255, 255, 255, 255),
+                                              fontWeight: FontWeight.bold),
+                                        )))),
                           ],
                         )),
                   ),

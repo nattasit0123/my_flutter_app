@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:flutter_app1/model/profile.dart';
 import 'package:flutter_app1/screen/home.dart';
+import 'package:flutter_app1/screen/home2.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
@@ -20,14 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final formKey = GlobalKey<FormState>();
   Profile profile = Profile(email: '', password: '');
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
-  final RoundedLoadingButtonController _btnController =
-      RoundedLoadingButtonController();
-
-  void _doSomething() async {
-    Timer(Duration(seconds: 3), () {
-      _btnController.success();
-    });
-  }
+  final Duration duration = const Duration(milliseconds: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +54,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("email", style: TextStyle(fontSize: 20)),
+                            SizedBox(
+                              height: 10,
+                            ),
                             TextFormField(
+                              decoration: InputDecoration(
+                                  hintText: "Please enter your email",
+                                  border: OutlineInputBorder()),
                               validator: MultiValidator([
                                 RequiredValidator(
                                     errorText: "Please enter your email"),
@@ -75,7 +76,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               height: 15,
                             ),
                             Text("password", style: TextStyle(fontSize: 20)),
+                            SizedBox(
+                              height: 10,
+                            ),
                             TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: "Please enter your password",
+                                    border: OutlineInputBorder()),
                                 validator: RequiredValidator(
                                     errorText: "Please enter your password"),
                                 obscureText: true,
@@ -85,81 +92,93 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             SizedBox(
                               height: 15,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: AnimatedButton(
-                                // height: 70,
-                                width: double.infinity,
-                                text: 'Sing up',
-                                isReverse: true,
-                                selectedTextColor:
-                                    Color.fromARGB(255, 5, 184, 255),
-                                transitionType: TransitionType.CENTER_ROUNDER,
-                                // textStyle: submitTextStyle,
-                                backgroundColor:
-                                    Color.fromARGB(255, 5, 184, 255),
-                                borderColor: Color.fromARGB(255, 255, 255, 255),
-                                borderRadius: 50,
-                                borderWidth: 2,
-                                onPress: () async {
-                                  if (formKey.currentState!.validate()) {
-                                    formKey.currentState?.save();
-                                    try {
-                                      await FirebaseAuth.instance
-                                          .createUserWithEmailAndPassword(
-                                              email: profile.email,
-                                              password: profile.password)
-                                          .then((value) {
-                                        formKey.currentState?.reset();
-                                        Fluttertoast.showToast(
-                                            msg: "User created successfully",
-                                            textColor: Color.fromARGB(
-                                                255, 11, 160, 73),
-                                            backgroundColor: Color.fromARGB(
-                                                255, 255, 255, 255),
-                                            gravity: ToastGravity.TOP);
-                                        Navigator.pushReplacement(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return HomeScreen();
-                                        }));
-                                      });
-                                    } on FirebaseAuthException catch (e) {
-                                      Fluttertoast.showToast(
-                                          msg: "${e.message}",
-                                          textColor:
-                                              Color.fromARGB(255, 255, 60, 0),
-                                          backgroundColor: Color.fromARGB(
-                                              255, 255, 255, 255),
-                                          gravity: ToastGravity.CENTER);
-                                    }
-                                  }
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: AnimatedButton(
-                                width: double.infinity,
-                                text: 'Back',
-                                isReverse: true,
-                                selectedTextColor:
-                                    Color.fromARGB(255, 255, 82, 82),
-                                transitionType: TransitionType.LEFT_TO_RIGHT,
-                                // textStyle: submitTextStyle,
-                                backgroundColor:
-                                    Color.fromARGB(255, 255, 82, 82),
-                                borderColor: Colors.white,
-                                borderRadius: 50,
-                                borderWidth: 2,
-                                onPress: () {
-                                  Navigator.pushReplacement(context,
-                                      MaterialPageRoute(builder: (context) {
-                                    return HomeScreen();
-                                  }));
-                                },
-                              ),
-                            ),
+                            FadeInUp(
+                                duration: duration,
+                                delay: const Duration(milliseconds: 0),
+                                child: SizedBox(
+                                    width: double.infinity, //width of button
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              Color.fromARGB(255, 255, 176, 58),
+                                          elevation: 3, //elevation of button
+                                          shape: RoundedRectangleBorder(
+                                              //to set border radius to button
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                        ),
+                                        onPressed: () async {
+                                          if (formKey.currentState!
+                                              .validate()) {
+                                            formKey.currentState?.save();
+                                            try {
+                                              await FirebaseAuth.instance
+                                                  .createUserWithEmailAndPassword(
+                                                      email: profile.email,
+                                                      password:
+                                                          profile.password)
+                                                  .then((value) {
+                                                formKey.currentState?.reset();
+                                                Fluttertoast.showToast(
+                                                    msg:
+                                                        "User created successfully",
+                                                    textColor: Color.fromARGB(
+                                                        255, 11, 160, 73),
+                                                    backgroundColor:
+                                                        Color.fromARGB(
+                                                            255, 255, 255, 255),
+                                                    gravity: ToastGravity.TOP);
+                                                Navigator.pushReplacement(
+                                                    context, MaterialPageRoute(
+                                                        builder: (context) {
+                                                  return HomeScreen2();
+                                                }));
+                                              });
+                                            } on FirebaseAuthException catch (e) {
+                                              Fluttertoast.showToast(
+                                                  msg: "${e.message}",
+                                                  textColor: Color.fromARGB(
+                                                      255, 255, 60, 0),
+                                                  backgroundColor:
+                                                      Color.fromARGB(
+                                                          255, 255, 255, 255),
+                                                  gravity: ToastGravity.CENTER);
+                                            }
+                                          }
+                                        },
+                                        child: Text(
+                                          "SING UP",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        )))),
+                            FadeInUp(
+                                duration: duration,
+                                // delay: const Duration(milliseconds: 200),
+                                child: SizedBox(
+                                    width: double.infinity, //width of button
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              Color.fromARGB(255, 255, 65, 18),
+                                          elevation: 3,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pushReplacement(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) {
+                                            return HomeScreen2();
+                                          }));
+                                        },
+                                        child: Text(
+                                          "BACK",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        )))),
                           ],
                         )),
                   ),

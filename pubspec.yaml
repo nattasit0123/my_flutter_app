@@ -48,6 +48,10 @@ dependencies:
   async_button_builder: ^2.3.0+1
   progress_loading_button: ^1.1.4
   rounded_loading_button: ^2.1.0
+  lottie: any
+  animate_do: any
+  firebase_database: ^10.0.9
+  cloud_firestore: ^4.3.1
  
 
 dev_dependencies:
