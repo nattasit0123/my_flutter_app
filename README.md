@@ -1,7 +1,7 @@
-# 🎯 dotapi.github.io 🎯
-### My name is `Nattasit`.
+# 🎯 My first application 🎯
+### I'am `Nattasit`.
 
-### What I'm currently learning:
+### skill used:
 
 <img src="https://media.discordapp.net/attachments/951806775756197959/951806802301947924/html.png">&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://media.discordapp.net/attachments/951806775756197959/951807750386622534/php.png">&nbsp;&nbsp;&nbsp;&nbsp;
