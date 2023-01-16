@@ -2,14 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:flutter_app1/screen/home2.dart';
 import 'package:flutter_app1/screen/welcome.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 import '../model/profile.dart';
-import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -45,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: Text("Login "),
               ),
               body: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
                 child: SingleChildScrollView(
                   child: Container(
                     child: Form(
@@ -99,8 +97,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     width: double.infinity, //width of button
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                              Color.fromARGB(255, 255, 176, 58),
+                                          backgroundColor: Color.fromARGB(
+                                              204, 211, 117, 255),
                                           elevation: 3, //elevation of button
                                           shape: RoundedRectangleBorder(
                                               //to set border radius to button
@@ -129,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               Fluttertoast.showToast(
                                                   msg: "${e.message}",
                                                   textColor: Color.fromARGB(
-                                                      255, 255, 60, 0),
+                                                      255, 200, 255, 0),
                                                   backgroundColor:
                                                       Color.fromARGB(
                                                           255, 255, 255, 255),
@@ -150,11 +148,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     width: double.infinity, //width of button
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: Color.fromARGB(
-                                              255,
-                                              255,
-                                              65,
-                                              18), //background color of button, //border width and color
+                                          backgroundColor:
+                                              Color.fromARGB(255, 255, 212, 18),
                                           elevation: 3, //elevation of button
                                           shape: RoundedRectangleBorder(
                                               //to set border radius to button
@@ -172,8 +167,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           "BACK",
                                           style: TextStyle(
                                               fontSize: 16,
-                                              color: Color.fromARGB(
-                                                  255, 255, 255, 255),
+                                              color:
+                                                  Color.fromARGB(255, 0, 0, 0),
                                               fontWeight: FontWeight.bold),
                                         )))),
                           ],

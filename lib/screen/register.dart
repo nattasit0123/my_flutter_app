@@ -3,13 +3,10 @@ import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:flutter_app1/model/profile.dart';
-import 'package:flutter_app1/screen/home.dart';
 import 'package:flutter_app1/screen/home2.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -45,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 title: Text("Create User"),
               ),
               body: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
                 child: SingleChildScrollView(
                   child: Container(
                     child: Form(
@@ -99,8 +96,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     width: double.infinity, //width of button
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                              Color.fromARGB(255, 255, 176, 58),
+                                          backgroundColor: Color.fromARGB(
+                                              204, 211, 117, 255),
                                           elevation: 3, //elevation of button
                                           shape: RoundedRectangleBorder(
                                               //to set border radius to button
@@ -160,7 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor:
-                                              Color.fromARGB(255, 255, 65, 18),
+                                              Color.fromARGB(255, 255, 212, 18),
                                           elevation: 3,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:

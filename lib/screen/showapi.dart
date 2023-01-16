@@ -57,7 +57,7 @@ class _ShowapiScreenState extends State<ShowapiScreen> {
                             fit: BoxFit.fitHeight,
                           ),
                           borderRadius: BorderRadius.circular(12),
-                          color: Color.fromARGB(255, 255, 224, 188)),
+                          color: Color.fromARGB(204, 238, 202, 255)),
                     ),
                     SizedBox(
                       width: 16,
@@ -102,14 +102,14 @@ class _ShowapiScreenState extends State<ShowapiScreen> {
         label: const Text(
           'Back',
           style: TextStyle(
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: Color.fromARGB(255, 0, 0, 0),
           ),
         ),
         icon: const Icon(
           Icons.arrow_back,
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: Color.fromARGB(255, 0, 0, 0),
         ),
-        backgroundColor: Color.fromARGB(255, 255, 0, 0),
+        backgroundColor: Color.fromARGB(255, 255, 212, 18),
       ),
     );
   }

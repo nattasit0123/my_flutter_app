@@ -11,9 +11,9 @@ class HomeScreen2 extends StatelessWidget {
     final Duration duration = const Duration(milliseconds: 800);
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 235, 210),
+      backgroundColor: Color.fromARGB(255, 247, 230, 255),
       body: Container(
-        margin: const EdgeInsets.all(8),
+        margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         width: size.width,
         height: size.height,
         child: Column(
@@ -73,8 +73,8 @@ class HomeScreen2 extends StatelessWidget {
                     width: double.infinity, //width of button
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 255, 188,
-                              88), //background color of button, //border width and color
+                          backgroundColor: Color.fromARGB(255, 233, 187,
+                              255), //background color of button, //border width and color
                           elevation: 3, //elevation of button
                           shape: RoundedRectangleBorder(
                               //to set border radius to button
@@ -98,8 +98,8 @@ class HomeScreen2 extends StatelessWidget {
                     width: double.infinity, //width of button
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 255, 153,
-                              0), //background color of button, //border width and color
+                          backgroundColor: Color.fromARGB(255, 211, 117,
+                              255), //background color of button, //border width and color
                           elevation: 3, //elevation of button
                           shape: RoundedRectangleBorder(
                               //to set border radius to button
