@@ -2,10 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/screen/ProfilePage1.dart';
 import 'package:flutter_app1/screen/add_student.dart';
-import 'package:flutter_app1/screen/showapi.dart';
 import 'package:flutter_app1/screen/student.dart';
 import 'package:flutter_app1/screen/update_student.dart';
-import 'package:flutter_app1/screen/welcome.dart';
 
 class HomePage extends StatelessWidget {
   final CollectionReference _reference =

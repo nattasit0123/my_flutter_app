@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/model/post.dart';
 import 'package:flutter_app1/screen/ProfilePage1.dart';
-import 'package:flutter_app1/screen/welcome.dart';
 import 'package:flutter_app1/services/remote_service.dart';
 import 'package:http/http.dart';
 

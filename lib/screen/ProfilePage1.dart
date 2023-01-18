@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app1/screen/home2.dart';
 import 'package:flutter_app1/screen/home_page.dart';
 import 'package:flutter_app1/screen/showapi.dart';
-import 'package:flutter_app1/screen/welcome.dart';
 
 final auth = FirebaseAuth.instance;
 
@@ -152,18 +151,6 @@ class _ProfileInfoRow extends StatelessWidget {
             item.title,
             style: Theme.of(context).textTheme.caption,
           ),
-          // Container(
-          //   height: 50,
-          //   width: 50,
-          //   decoration: BoxDecoration(
-          //     image: DecorationImage(
-          //         image: NetworkImage(
-          //             'https://nattasit0123.github.io/pic/api.png'),
-          //         fit: BoxFit.cover),
-          //     borderRadius: BorderRadius.circular(12),
-          //     color: Color.fromARGB(204, 238, 202, 255),
-          //   ),
-          // ),
         ],
       );
 }
@@ -214,6 +201,7 @@ class _TopPortion extends StatelessWidget {
                         fit: BoxFit.cover,
                         image: NetworkImage(
                             'https://nattasit0123.github.io/flutter/pic/profile01.jpg')),
+                    // 'https://nattasit0123.github.io/pic/ruby.png')),
                   ),
                 ),
               ],
