@@ -28,4 +28,8 @@ nattasit.work@gmail.com
 
 ------
 
+<<<<<<< HEAD
 Last Edited on: 17/01/23
+=======
+Last Edited on: 17/01/23
+>>>>>>> b43fd4a7afe8c6baabc2101f1c8e4721bce3ab58
