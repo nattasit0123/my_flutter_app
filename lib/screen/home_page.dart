@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/screen/ProfilePage1.dart';
 import 'package:flutter_app1/screen/add_student.dart';
 import 'package:flutter_app1/screen/showapi.dart';
 import 'package:flutter_app1/screen/student.dart';
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Firebase CRUD'),
+        title: const Text('Cloud Firestore'),
         centerTitle: true,
       ),
       body: FutureBuilder<QuerySnapshot>(
@@ -73,7 +74,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) {
-                  return WelcomeScreen();
+                  return ProfilePage1();
                 }));
               },
             ),
@@ -109,7 +110,7 @@ class HomePage extends StatelessWidget {
                       : Colors.green.shade100,
               child: ListTile(
                 title: Text(students[index].name),
-                subtitle: Text('Rollno: ${students[index].rollno}'),
+                subtitle: Text('No : ${students[index].rollno}'),
                 leading: CircleAvatar(
                   radius: 25,
                   child: Text('${students[index].marks}'),

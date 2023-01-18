@@ -11,7 +11,7 @@ class HomeScreen2 extends StatelessWidget {
     final Duration duration = const Duration(milliseconds: 800);
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 247, 230, 255),
+      backgroundColor: Color.fromRGBO(246, 232, 255, 1),
       body: Container(
         margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         width: size.width,

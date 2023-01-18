@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/screen/ProfilePage1.dart';
 import 'package:flutter_app1/screen/home2.dart';
 import 'package:flutter_app1/screen/welcome.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -21,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Profile profile = Profile(email: '', password: '');
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
   final Duration duration = const Duration(milliseconds: 0);
+  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -120,14 +122,23 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 Navigator.pushReplacement(
                                                     context, MaterialPageRoute(
                                                         builder: (context) {
-                                                  return WelcomeScreen();
+                                                  return ProfilePage1();
                                                 }));
+                                                Fluttertoast.showToast(
+                                                    msg:
+                                                        "Login with ${auth.currentUser?.email} successfully",
+                                                    textColor: Color.fromARGB(
+                                                        255, 1, 160, 67),
+                                                    backgroundColor:
+                                                        Color.fromARGB(
+                                                            255, 255, 255, 255),
+                                                    gravity: ToastGravity.TOP);
                                               });
                                             } on FirebaseAuthException catch (e) {
                                               Fluttertoast.showToast(
                                                   msg: "${e.message}",
                                                   textColor: Color.fromARGB(
-                                                      255, 200, 255, 0),
+                                                      255, 255, 0, 0),
                                                   backgroundColor:
                                                       Color.fromARGB(
                                                           255, 255, 255, 255),

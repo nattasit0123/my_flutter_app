@@ -24,21 +24,21 @@ class UpdateStudent extends StatelessWidget {
     marksController.text = '${student.marks}';
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Student'),
+        title: const Text('Update'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(height: 20),
-            getMyField(
-                focusNode: focusNode,
-                hintText: 'Rollno',
-                textInputType: TextInputType.number,
-                controller: rollController),
             getMyField(hintText: 'Name', controller: nameController),
             getMyField(
-                hintText: 'Marks',
+                focusNode: focusNode,
+                hintText: 'No.',
+                textInputType: TextInputType.number,
+                controller: rollController),
+            getMyField(
+                hintText: 'Score',
                 textInputType: TextInputType.number,
                 controller: marksController),
             Row(

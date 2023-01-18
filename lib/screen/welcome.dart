@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/screen/ProfilePage1.dart';
 
 import 'package:flutter_app1/screen/home2.dart';
 import 'package:flutter_app1/screen/home_page.dart';
@@ -13,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome '),
+        title: Text('Welcome'),
         actions: <Widget>[
           IconButton(
             icon: Icon(
@@ -63,7 +64,12 @@ class WelcomeScreen extends StatelessWidget {
                     height: 100,
                     width: 100,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return ProfilePage1();
+                        }));
+                      },
                       child: Icon(Icons.person),
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -85,7 +91,7 @@ class WelcomeScreen extends StatelessWidget {
         },
         label: const Text('REST API'),
         icon: const Icon(Icons.art_track),
-        backgroundColor: Color.fromARGB(255, 255, 224, 88),
+        backgroundColor: Color.fromARGB(255, 255, 183, 75),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(

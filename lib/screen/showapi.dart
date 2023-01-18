@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/model/post.dart';
+import 'package:flutter_app1/screen/ProfilePage1.dart';
 import 'package:flutter_app1/screen/welcome.dart';
 import 'package:flutter_app1/services/remote_service.dart';
 import 'package:http/http.dart';
@@ -35,7 +36,7 @@ class _ShowapiScreenState extends State<ShowapiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TEST GET REST API'),
+        title: const Text('Most Programming Languages'),
       ),
       body: Visibility(
         visible: isLoaded,
@@ -51,13 +52,12 @@ class _ShowapiScreenState extends State<ShowapiScreen> {
                       height: 50,
                       width: 50,
                       decoration: BoxDecoration(
-                          image: new DecorationImage(
-                            image:
-                                ExactAssetImage('assets/images/megaphone.png'),
-                            fit: BoxFit.fitHeight,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                          color: Color.fromARGB(204, 238, 202, 255)),
+                        image: DecorationImage(
+                            image: NetworkImage('${posts![index].pic}'),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(12),
+                        color: Color.fromARGB(204, 238, 202, 255),
+                      ),
                     ),
                     SizedBox(
                       width: 16,
@@ -96,7 +96,7 @@ class _ShowapiScreenState extends State<ShowapiScreen> {
         onPressed: () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
-            return WelcomeScreen();
+            return ProfilePage1();
           }));
         },
         label: const Text(
