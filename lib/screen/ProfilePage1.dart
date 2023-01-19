@@ -47,22 +47,45 @@ class ProfilePage1 extends StatelessWidget {
                         .headline6
                         ?.copyWith(fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FloatingActionButton.extended(
-                        onPressed: () {},
-                        heroTag: 'email',
-                        elevation: 1,
-                        label: const Text("nattasit.work@gmail.com"),
-                        icon: const Icon(Icons.email),
-                      ),
-                      const SizedBox(width: 16.0),
-                    ],
+                  SizedBox(height: 5),
+                  Text(
+                    "Computer Science",
                   ),
-                  const SizedBox(height: 16),
-                  const _ProfileInfoRow()
+                  SizedBox(height: 8),
+                  Text(
+                    "🎯 My first flutter application 🎯",
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    "What I'm currently learning",
+                  ),
+                  const SizedBox(height: 13),
+                  const _ProfileInfoRow(),
+                  SizedBox(height: 13),
+                  Text(
+                    "Contact",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        ?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 6),
+                  FloatingActionButton.extended(
+                    heroTag: "btn1",
+                    label: Text(
+                      'nattasit.work@gmail.com',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                    ), // <-- Text
+                    backgroundColor: Color.fromARGB(255, 75, 75, 75),
+                    icon: Icon(
+                      Icons.email,
+                      size: 24.0,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                    onPressed: () {},
+                  ),
                 ],
               ),
             ),
@@ -123,13 +146,11 @@ class _ProfileInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 64,
-      width: 320,
+      width: 300,
       decoration: BoxDecoration(
         image: DecorationImage(
             image: NetworkImage('https://nattasit0123.github.io/pic/3332.png'),
             fit: BoxFit.cover),
-        borderRadius: BorderRadius.circular(12),
-        // color: Color.fromARGB(204, 238, 202, 255),
       ),
     );
   }
@@ -172,12 +193,16 @@ class _TopPortion extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(bottom: 50),
           decoration: const BoxDecoration(
+              image: const DecorationImage(
+                image: NetworkImage(
+                    'https://nattasit0123.github.io/flutter/pic/icon.png'),
+                fit: BoxFit.cover,
+              ),
               gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                   colors: [
                     Color.fromARGB(255, 99, 64, 255),
-                    // Color.fromARGB(255, 255, 88, 247),
                     Color.fromARGB(204, 211, 117, 255)
                   ]),
               borderRadius: BorderRadius.only(

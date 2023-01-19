@@ -35,7 +35,7 @@ class _ShowapiScreenState extends State<ShowapiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Most Programming Languages'),
+        title: const Text('API on Github Pages'),
       ),
       body: Visibility(
         visible: isLoaded,
