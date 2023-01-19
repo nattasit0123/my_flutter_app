@@ -27,7 +27,4 @@ nattasit.work@gmail.com
 
 
 ------
-<<<<<<< HEAD
-=======
 
->>>>>>> ca28808ee04440c07ae12a2544c0f98d272bafd4
