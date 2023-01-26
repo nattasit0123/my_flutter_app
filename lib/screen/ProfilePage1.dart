@@ -55,10 +55,6 @@ class ProfilePage1 extends StatelessWidget {
                   Text(
                     "🎯 My first flutter application 🎯",
                   ),
-                  SizedBox(height: 6),
-                  Text(
-                    "What I'm currently learning",
-                  ),
                   const SizedBox(height: 13),
                   const _ProfileInfoRow(),
                   SizedBox(height: 13),

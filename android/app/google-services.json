@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "77639326166",
+    "firebase_url": "https://testflutter-app1-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "testflutter-app1",
     "storage_bucket": "testflutter-app1.appspot.com"
   },
@@ -10,6 +11,42 @@
         "mobilesdk_app_id": "1:77639326166:android:469dfaa432c30dded6ac77",
         "android_client_info": {
           "package_name": "com.example.flutter_app1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77639326166-mf0p0lq754dkss4tns0tj9gn8u68adq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXEpoN8sKMNQo8MBZXBXYtKc8pG7mdAYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77639326166-mf0p0lq754dkss4tns0tj9gn8u68adq2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "77639326166-5fdsaj5h8ojpnohguquvepnipbj8705h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApp1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77639326166:android:989d03a9a532c81dd6ac77",
+        "android_client_info": {
+          "package_name": "com.nattasit.flutterfireN"
         }
       },
       "oauth_client": [
